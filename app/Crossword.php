@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Words extends Model
+class Crossword extends Model
 {
-    protected $fillable = ['word'];
+
 }
