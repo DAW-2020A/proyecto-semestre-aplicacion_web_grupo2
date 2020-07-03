@@ -17,7 +17,7 @@ class CreateActivitiesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('description');
-            $table->integer('score');
+            $table->float('score');
             $table->timestamps();
         });
     }
