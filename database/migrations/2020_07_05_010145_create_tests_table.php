@@ -17,7 +17,7 @@ class CreateTestsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->text('description');
-            $table->time('timelimit');
+            $table->time('timeLimit');
             $table->date('date');
             $table->timestamps();
         });
