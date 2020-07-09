@@ -30,10 +30,10 @@ class AdministratorsTableSeeder extends Seeder
         // Generar algunos usuarios para nuestra aplicacion
         for($i = 0; $i < 10; $i++) {
             Administrator::create([
-                'name'=> $faker->name,
-                'lastname'=> $faker->lastName,
-                'email'=> $faker->email,
-                'password'=> $password,
+                'name' => $faker->firstName,
+                'lastname' => $faker->lastName,
+                'email' => $faker->email,
+                'password' => $password,
             ]);
         }
     }
