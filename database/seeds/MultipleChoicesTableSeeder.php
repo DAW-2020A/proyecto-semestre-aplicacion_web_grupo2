@@ -19,12 +19,14 @@ class MultipleChoicesTableSeeder extends Seeder
         // Crear datos ficticios en la tabla
         for ($i = 0; $i < 20; $i++) {
 
+            $aux1 =$faker->word;
+            $aux2=$faker->sentence;
             MultipleChoice::create([
-                'CorrectAnswer'=>$faker->sentence,
-                'Option1'=>$faker->sentence,
-                'Option2'=>$faker->sentence,
-                'Option3'=>$faker->sentence,
-                'Option4'=>$faker->sentence,
+                'CorrectAnswer'=>$faker->randomElement([$aux1,$aux2]),
+                'Option1'=>$faker->randomElement([$aux1,$aux2]),
+                'Option2'=>$faker->randomElement([$aux1,$aux2]),
+                'Option3'=>$faker->randomElement([$aux1,$aux2]),
+                'Option4'=>$faker->randomElement([$aux1,$aux2]),
             ]);
         }
     }

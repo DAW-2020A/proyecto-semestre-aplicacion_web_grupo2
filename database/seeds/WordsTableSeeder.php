@@ -20,7 +20,7 @@ class WordsTableSeeder extends Seeder
         for ($i = 0; $i < 20; $i++) {
 
             Word::create([
-                'word'=>$faker->sentence,
+                'word'=>$faker->word,
             ]);
         }
     }
