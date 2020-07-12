@@ -20,5 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(WordsTableSeeder::class);
         $this->call(WordSearchesTableSeeder::class);
         $this->call(MultipleChoicesTableSeeder::class);
+        $this->call(TeachersTableSeeder::class);
+        $this->call(CoursesTableSeeder::class);
     }
 }
