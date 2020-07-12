@@ -17,5 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call(CompletesTableSeeder::class);
         $this->call(QuestionsTableSeeder::class);
         $this->call(CrosswordsTableSeeder::class);
+        $this->call(WordsTableSeeder::class);
+        $this->call(WordSearchesTableSeeder::class);
+        $this->call(MultipleChoicesTableSeeder::class);
     }
 }
