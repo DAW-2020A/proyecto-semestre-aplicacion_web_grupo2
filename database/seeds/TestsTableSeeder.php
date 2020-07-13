@@ -18,7 +18,7 @@ class TestsTableSeeder extends Seeder
         $faker=\Faker\Factory::create();
 
         //Crear pruebas
-        for ($i=0; $i<50; $i++){
+        for ($i=0; $i<20; $i++){
             Test::create([
                 'name' => $faker->sentence,
                 'description'=>$faker->paragraph,
