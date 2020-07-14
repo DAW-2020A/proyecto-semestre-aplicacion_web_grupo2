@@ -1,5 +1,6 @@
 <?php
 
+use App\Administrator;
 use Illuminate\Http\Request;
 
 /*
@@ -13,6 +14,12 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+
+Route::get('administrators', 'AdministratorController@index');
+Route::get('administrators/{administrator}', 'AdministratorController@show');
+Route::post('administrators', 'AdministratorController@store');
+Route::put('administrators/{administrator}', 'AdministratorController@update');
+Route::delete('administrators/{administrator}', 'AdministratorController@delete');
