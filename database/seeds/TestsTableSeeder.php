@@ -22,8 +22,8 @@ class TestsTableSeeder extends Seeder
             Test::create([
                 'name' => $faker->sentence,
                 'description'=>$faker->paragraph,
-                'timeLimit'=>$faker->time('H:i:s', $max = 'now'),
-                'date'=>$faker->dateTimeBetween($startDate = 'now', $endDate = '+5 days', $timezone = 'America/Guayaquil'),
+                'start_time'=>$faker->dateTimeInInterval($startDate='now', $endDate = '-2 hours',$timezone = 'America/Guayaquil'),
+                'end_time'=>$faker->dateTimeBetween($startDate = 'now', $endDate = '+2 hours', $timezone = 'America/Guayaquil'),
             ]);
 
         }

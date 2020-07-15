@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Complete extends Model
 {
-    protected $fillable = ['CompleteText','HiddenText'];
+    protected $fillable = ['complete_text','hidden_text'];
 }

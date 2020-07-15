@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Test extends Model
 {
-    protected $fillable = ['name', 'description','timeLimit','date'];
+    protected $fillable = ['name', 'description','start_time','end_time'];
 }

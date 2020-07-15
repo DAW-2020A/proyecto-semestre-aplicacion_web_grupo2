@@ -14,9 +14,9 @@ class CreateCompletesTable extends Migration
     public function up()
     {
         Schema::create('completes', function (Blueprint $table) {
-            $table->bigIncrements('idCom');
-            $table->text('CompleteText');
-            $table->text('HiddenText');
+            $table->bigIncrements('id');
+            $table->text('complete_text');
+            $table->text('hidden_text');
             $table->timestamps();
         });
     }
