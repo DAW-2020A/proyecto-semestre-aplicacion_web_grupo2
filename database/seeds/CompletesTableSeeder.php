@@ -21,8 +21,8 @@ class CompletesTableSeeder extends Seeder
             $aux = $faker->sentence;
 
             Complete::create([
-                'CompleteText' => $aux,
-                'HiddenText' => $aux,
+                'complete_text' => $aux,
+                'hidden_text' => $aux,
             ]);
         }
     }

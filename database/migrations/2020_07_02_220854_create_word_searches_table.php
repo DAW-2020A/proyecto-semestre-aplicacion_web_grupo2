@@ -16,7 +16,7 @@ class CreateWordSearchesTable extends Migration
         Schema::create('word_searches', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->boolean('clue');
-            $table->string('size');
+            $table->enum('size',['small','medium','big']);
             $table->timestamps();
         });
     }

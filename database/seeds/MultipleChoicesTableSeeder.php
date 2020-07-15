@@ -22,11 +22,11 @@ class MultipleChoicesTableSeeder extends Seeder
             $aux1 =$faker->word;
             $aux2=$faker->sentence;
             MultipleChoice::create([
-                'CorrectAnswer'=>$faker->randomElement([$aux1,$aux2]),
-                'Option1'=>$faker->randomElement([$aux1,$aux2]),
-                'Option2'=>$faker->randomElement([$aux1,$aux2]),
-                'Option3'=>$faker->randomElement([$aux1,$aux2]),
-                'Option4'=>$faker->randomElement([$aux1,$aux2]),
+                'correct_answer'=>$faker->randomElement([$aux1,$aux2]),
+                'option1'=>$faker->word,
+                'option2'=>$faker->sentence,
+                'option3'=>$faker->word,
+                'option4'=>$faker->sentence,
             ]);
         }
     }

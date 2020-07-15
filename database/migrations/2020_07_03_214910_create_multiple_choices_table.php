@@ -15,11 +15,11 @@ class CreateMultipleChoicesTable extends Migration
     {
         Schema::create('multiple_choices', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('CorrectAnswer');
-            $table->string('Option1');
-            $table->string('Option2');
-            $table->string('Option3');
-            $table->string('Option4');
+            $table->string('correct_answer');
+            $table->string('option1');
+            $table->string('option2');
+            $table->string('option3');
+            $table->string('option4');
             $table->timestamps();
         });
     }

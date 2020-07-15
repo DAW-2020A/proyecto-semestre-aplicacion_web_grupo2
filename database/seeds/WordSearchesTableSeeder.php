@@ -21,7 +21,7 @@ class WordSearchesTableSeeder extends Seeder
 
             WordSearch::create([
                 'clue'=>$faker->randomElement([true,false]),
-                'size'=>$faker->randomElement(['pequeño','mediano','grande']),
+                'size'=>$faker->randomElement(['small','medium','big']),
             ]);
         }
     }
