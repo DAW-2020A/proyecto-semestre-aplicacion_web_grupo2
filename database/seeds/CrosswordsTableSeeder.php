@@ -14,6 +14,11 @@ class CrosswordsTableSeeder extends Seeder
     {
         //Vaciar la tabla.
         Crossword::truncate();
+        $faker = \Faker\Factory::create();
+
+        for ($i = 0; $i<5; $i++){
+            Crossword::create();
+        }
 
     }
 }
