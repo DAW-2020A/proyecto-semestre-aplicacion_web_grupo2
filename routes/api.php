@@ -29,3 +29,9 @@ Route::get('questions/{question}', 'QuestionController@show');
 Route::post('questions', 'QuestionController@store');
 Route::put('questions/{question}', 'QuestionController@update');
 Route::delete('questions/{question}', 'QuestionController@delete');
+//Rutas MultipleChoice
+Route::get('multiple_choices', 'MultipleChoiceController@index');
+Route::get('multiple_choices/{multiple}', 'MultipleChoiceController@show');
+Route::post('multiple_choices', 'MultipleChoiceController@store');
+Route::put('multiple_choices/{multiple}', 'MultipleChoiceController@update');
+Route::delete('multiple_choices/{multiple}', 'MultipleChoiceController@delete');
