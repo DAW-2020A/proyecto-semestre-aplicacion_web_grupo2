@@ -11,12 +11,12 @@ class TeacherController extends Controller
 {
     public function index()
     {
-        return Teacher::all();
+        return new TeacherCollection(Teacher::all());
     }
 
     public function show(Teacher $teacher)
     {
-        return $teacher;
+        return response()->json(new TeacherResource($teacher), 200);
     }
 
     public function store(Request $request)
@@ -30,7 +30,7 @@ class TeacherController extends Controller
         return response()->json($teacher, 200);
     }
 
-    public function delete(Request $request, Teacher $teacher){
+    public function delete(Teacher $teacher){
         $teacher->delete();
         return response()->json(null, 204);
     }
