@@ -23,6 +23,16 @@ Route::get('administrators/{administrator}', 'AdministratorController@show');
 Route::post('administrators', 'AdministratorController@store');
 Route::put('administrators/{administrator}', 'AdministratorController@update');
 Route::delete('administrators/{administrator}', 'AdministratorController@delete');
+//Rutas teachers
+Route::get('teachers', 'TeacherController@index');
+Route::get('teachers/{teacher}', 'TeacherController@show');
+Route::put('teachers/{teacher}', 'TeacherController@update');
+Route::delete('teachers/{teacher}', 'TeacherController@delete');
+//Rutas courses
+Route::get('courses', 'CourseController@index');
+Route::get('courses/{course}', 'CourseController@show');
+Route::put('courses/{course}', 'CourseController@update');
+Route::delete('courses/{course}', 'CourseController@delete');
 //Rutas question
 Route::get('questions', 'QuestionController@index');
 Route::get('questions/{question}', 'QuestionController@show');
