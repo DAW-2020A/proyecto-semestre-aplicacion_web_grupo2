@@ -45,3 +45,15 @@ Route::get('multiple_choices/{multiple}', 'MultipleChoiceController@show');
 Route::post('multiple_choices', 'MultipleChoiceController@store');
 Route::put('multiple_choices/{multiple}', 'MultipleChoiceController@update');
 Route::delete('multiple_choices/{multiple}', 'MultipleChoiceController@delete');
+//Rutas Test
+Route::get('tests', 'TestController@index');
+Route::get('tests/{test}', 'TestController@show');
+Route::post('tests', 'TestController@store');
+Route::put('tests/{test}', 'TestController@update');
+Route::delete('tests/{test}', 'TestController@delete');
+//Rutas Student
+Route::get('students', 'StudentController@index');
+Route::get('students/{student}', 'StudentController@show');
+Route::post('students', 'StudentController@store');
+Route::put('students/{student}', 'StudentController@update');
+Route::delete('students/{student}', 'StudentController@delete');

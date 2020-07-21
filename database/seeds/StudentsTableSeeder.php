@@ -19,6 +19,14 @@ class StudentsTableSeeder extends Seeder
 
         //Crear estudiantes
         $password = Hash::make('123456');
+
+        Student::create([
+            'name'=> 'student',
+            'lastname'=> 'prueba',
+            'email'=> 'student@prueba.com',
+            'password'=> $password,
+        ]);
+
         for ($i=0; $i<50; $i++){
             Student::create([
                 'name' => $faker->firstName,
