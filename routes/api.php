@@ -39,6 +39,12 @@ Route::get('questions/{question}', 'QuestionController@show');
 Route::post('questions', 'QuestionController@store');
 Route::put('questions/{question}', 'QuestionController@update');
 Route::delete('questions/{question}', 'QuestionController@delete');
+//Rutas complete
+Route::get('completes', 'CompleteController@index');
+Route::get('completes/{complete}', 'CompleteController@show');
+Route::post('completes', 'CompleteController@store');
+Route::put('completes/{complete}', 'CompleteController@update');
+Route::delete('completes/{complete}', 'CompleteController@delete');
 //Rutas MultipleChoice
 Route::get('multiple_choices', 'MultipleChoiceController@index');
 Route::get('multiple_choices/{multiple}', 'MultipleChoiceController@show');
