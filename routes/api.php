@@ -17,17 +17,6 @@ use Illuminate\Http\Request;
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
 //    return $request->user();
 //});
-//Rutas administrador
-Route::get('administrators', 'AdministratorController@index');
-Route::get('administrators/{administrator}', 'AdministratorController@show');
-Route::post('administrators', 'AdministratorController@store');
-Route::put('administrators/{administrator}', 'AdministratorController@update');
-Route::delete('administrators/{administrator}', 'AdministratorController@delete');
-//Rutas teachers
-Route::get('teachers', 'TeacherController@index');
-Route::get('teachers/{teacher}', 'TeacherController@show');
-Route::put('teachers/{teacher}', 'TeacherController@update');
-Route::delete('teachers/{teacher}', 'TeacherController@delete');
 //Rutas courses
 Route::get('courses', 'CourseController@index');
 Route::get('courses/{course}', 'CourseController@show');
@@ -57,9 +46,21 @@ Route::get('tests/{test}', 'TestController@show');
 Route::post('tests', 'TestController@store');
 Route::put('tests/{test}', 'TestController@update');
 Route::delete('tests/{test}', 'TestController@delete');
-//Rutas Student
-Route::get('students', 'StudentController@index');
-Route::get('students/{student}', 'StudentController@show');
-Route::post('students', 'StudentController@store');
-Route::put('students/{student}', 'StudentController@update');
-Route::delete('students/{student}', 'StudentController@delete');
+//Rutas WordSearch
+Route::get('searches', 'WordSearchController@index');
+Route::get('searches/{search}', 'WordSearchController@show');
+Route::post('searches', 'WordSearchController@store');
+Route::put('searches/{search}', 'WordSearchController@update');
+Route::delete('searches/{search}', 'WordSearchController@delete');
+//Rutas Activity
+Route::get('activities', 'ActivityController@index');
+Route::get('activities/{activity}', 'ActivityController@show');
+Route::post('activities', 'ActivityController@store');
+Route::put('activities/{activity}', 'ActivityController@update');
+Route::delete('activities/{activity}', 'ActivityController@delete');
+//Rutas Word
+Route::get('words', 'WordController@index');
+Route::get('words/{word}', 'WordController@show');
+Route::post('words', 'WordController@store');
+Route::put('words/{word}', 'WordController@update');
+Route::delete('words/{word}', 'WordController@delete');
