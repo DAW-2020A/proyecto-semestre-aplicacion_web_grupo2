@@ -14,16 +14,15 @@ class CrosswordsTableSeeder extends Seeder
      */
     public function run()
     {
-        Schema::disableForeignKeyConstraints();
         //Vaciar la tabla.
         Crossword::truncate();
         $faker = \Faker\Factory::create();
+        //obtenemos las actividades desde la 31 hasta la 60
         $activities=App\Activity::skip(30)->take(30)->get();
         foreach ($activities as $activity){
             Crossword::create([
                 'activity_id' => $activity->id,
             ]);
         }
-        Schema::enableForeignKeyConstraints();
     }
 }

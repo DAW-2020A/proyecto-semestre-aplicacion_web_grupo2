@@ -16,7 +16,7 @@ class MultipleChoicesTableSeeder extends Seeder
         MultipleChoice::truncate();
         $faker = \Faker\Factory::create();
 
-        //obtenemos las 30 primeras actividades
+        //obtenemos las actividades desde la 61 hasta la 90
         $activities=App\Activity::skip(60)->take(30)->get();
 
         // Crear datos ficticios en la tabla

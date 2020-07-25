@@ -13,14 +13,14 @@ class WordsTableSeeder extends Seeder
      */
     public function run()
     {
-        // Vaciamos la tabla comments
+        // Vaciamos la tabla words
         Word::truncate();
         $faker = \Faker\Factory::create();
 
-        // Obtenemos todos las sopas de letras de la bdd
+        // Obtenemos todas las sopas de letras de la bdd
         $searches = App\WordSearch::all();
 
-        // Creamos un  para cada artículo con este usuario
+        // Creamos 8 palabras para cada sopa de letras
         foreach ($searches as $search) {
             $num_palabras=8;
             for ($i=0;  $i<$num_palabras; $i++){

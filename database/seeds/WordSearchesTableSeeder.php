@@ -31,6 +31,7 @@ class WordSearchesTableSeeder extends Seeder
         //        //Vaciar la tabla.
 //        WordSearch::truncate();
 //        $faker = \Faker\Factory::create();
+
 //        $activities=App\Activity::skip(90)->take(30)->get();
 //        foreach ($activities as $activity){
 //            WordSearch::create([

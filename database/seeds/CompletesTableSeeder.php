@@ -17,6 +17,8 @@ class CompletesTableSeeder extends Seeder
         //Vaciar la tabla.
         Complete::truncate();
         $faker = \Faker\Factory::create();
+
+        //obtenemos las primeras 30 actividades
         $activities=App\Activity::take(30)->get();
         foreach ($activities as $activity){
             $aux = $faker->sentence;
