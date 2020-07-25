@@ -14,7 +14,6 @@ class WordSearchesTableSeeder extends Seeder
      */
     public function run()
     {
-        Schema::disableForeignKeyConstraints();
         //Vaciar la tabla.
         WordSearch::truncate();
         $faker = \Faker\Factory::create();
@@ -26,7 +25,6 @@ class WordSearchesTableSeeder extends Seeder
                 'size'=>$faker->randomElement(['small','medium','big']),
             ]);
         }
-        Schema::enableForeignKeyConstraints();
 
         //        //Vaciar la tabla.
 //        WordSearch::truncate();
