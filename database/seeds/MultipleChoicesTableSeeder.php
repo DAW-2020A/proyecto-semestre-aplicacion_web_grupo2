@@ -16,17 +16,21 @@ class MultipleChoicesTableSeeder extends Seeder
         MultipleChoice::truncate();
         $faker = \Faker\Factory::create();
 
-        // Crear datos ficticios en la tabla
-        for ($i = 0; $i < 20; $i++) {
+        //obtenemos las 30 primeras actividades
+        $activities=App\Activity::skip(60)->take(30)->get();
 
-            $aux1 =$faker->word;
-            $aux2=$faker->sentence;
+        // Crear datos ficticios en la tabla
+        foreach ($activities as $activity){
+
+          $aux1 =$faker->word;
+          $aux2 =$faker->sentence;
             MultipleChoice::create([
-                'correct_answer'=>$faker->randomElement([$aux1,$aux2]),
                 'option1'=>$faker->word,
                 'option2'=>$faker->sentence,
                 'option3'=>$faker->word,
                 'option4'=>$faker->sentence,
+                'correct_answer'=>$faker->randomElement([$aux1,$aux2]),
+                'activity_id' => $activity->id,
             ]);
         }
     }

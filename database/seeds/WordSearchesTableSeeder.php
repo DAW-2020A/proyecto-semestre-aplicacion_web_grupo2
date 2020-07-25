@@ -2,6 +2,8 @@
 
 use App\WordSearch;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class WordSearchesTableSeeder extends Seeder
 {
@@ -12,17 +14,30 @@ class WordSearchesTableSeeder extends Seeder
      */
     public function run()
     {
-        //Vaciar la tabla
+        Schema::disableForeignKeyConstraints();
+        //Vaciar la tabla.
         WordSearch::truncate();
         $faker = \Faker\Factory::create();
 
-        // Crear datos ficticios en la tabla
-        for ($i = 0; $i < 20; $i++) {
-
+        // creamos 30 crosswords por cada 30 actividades
+        for ($j = 0; $j < 30; $j++) {
             WordSearch::create([
                 'clue'=>$faker->randomElement([true,false]),
                 'size'=>$faker->randomElement(['small','medium','big']),
             ]);
         }
+        Schema::enableForeignKeyConstraints();
+
+        //        //Vaciar la tabla.
+//        WordSearch::truncate();
+//        $faker = \Faker\Factory::create();
+//        $activities=App\Activity::skip(90)->take(30)->get();
+//        foreach ($activities as $activity){
+//            WordSearch::create([
+//                'clue'=>$faker->randomElement([true,false]),
+//                'size'=>$faker->randomElement(['small','medium','big']),
+//                'activity_id' => $activity->id,
+//            ]);
+//        }
     }
 }

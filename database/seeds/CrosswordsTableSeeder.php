@@ -2,6 +2,8 @@
 
 use App\Crossword;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class CrosswordsTableSeeder extends Seeder
 {
@@ -12,13 +14,16 @@ class CrosswordsTableSeeder extends Seeder
      */
     public function run()
     {
+        Schema::disableForeignKeyConstraints();
         //Vaciar la tabla.
         Crossword::truncate();
         $faker = \Faker\Factory::create();
-
-        for ($i = 0; $i<5; $i++){
-            Crossword::create();
+        $activities=App\Activity::skip(30)->take(30)->get();
+        foreach ($activities as $activity){
+            Crossword::create([
+                'activity_id' => $activity->id,
+            ]);
         }
-
+        Schema::enableForeignKeyConstraints();
     }
 }

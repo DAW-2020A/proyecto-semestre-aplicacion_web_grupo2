@@ -2,6 +2,8 @@
 
 use App\Complete;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class CompletesTableSeeder extends Seeder
 {
@@ -15,14 +17,13 @@ class CompletesTableSeeder extends Seeder
         //Vaciar la tabla.
         Complete::truncate();
         $faker = \Faker\Factory::create();
-        // Crear datos ficticios en la tabla
-
-        for ($i = 0; $i < 20; $i++) {
+        $activities=App\Activity::take(30)->get();
+        foreach ($activities as $activity){
             $aux = $faker->sentence;
-
             Complete::create([
                 'complete_text' => $aux,
                 'hidden_text' => $aux,
+                'activity_id' => $activity->id,
             ]);
         }
     }

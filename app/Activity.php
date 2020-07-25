@@ -8,19 +8,19 @@ class Activity extends Model
 {
     protected $fillable = ['title', 'description', 'score'];
 
-    public function completes()
+    public function complete()
     {
-        return $this->hasMany('App\Complete');
+        return $this->hasOne('App\Complete');
     }
 
-    public function multiple_choices()
+    public function multiple_choice()
     {
-        return $this->hasMany('App\MultipleChoice');
+        return $this->hasOne('App\MultipleChoice');
     }
 
-    public function crosswords()
+    public function crossword()
     {
-        return $this->hasMany('App\Crossword');
+        return $this->hasOne('App\Crossword');
     }
 }
 
