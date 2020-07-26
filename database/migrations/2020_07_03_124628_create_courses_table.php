@@ -19,6 +19,13 @@ class CreateCoursesTable extends Migration
             $table->integer('code');
             $table->timestamps();
         });
+        Schema::create('course_student', function (Blueprint $table) {
+            $table->unsignedBigInteger('course_id');
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('restrict');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -28,6 +35,9 @@ class CreateCoursesTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('courses');
+        Schema::dropIfExists('course_student');
+        Schema::enableForeignKeyConstraints();
     }
 }
