@@ -15,14 +15,22 @@ class QuestionsTableSeeder extends Seeder
         //Vaciar la tabla.
         Question::truncate();
         $faker = \Faker\Factory::create();
-        // Crear datos ficticios en la tabla
 
-        for ($i = 0; $i < 20; $i++) {
+        //Obtenemos todos los crosswords de la bdd
+        $crosswords = App\Crossword::all();
 
-            Question::create([
-                'word' => $faker->word,
-                'definition' => $faker->sentence,
-            ]);
+
+
+        // Creamos 8 questions para cada crossword
+        foreach ($crosswords as $crossword) {
+            $num_palabras=8;
+            for ($i=0;  $i<$num_palabras; $i++){
+                Question::create([
+                    'word' => $faker->word,
+                    'definition' => $faker->sentence,
+                    'crossword_id' => $crossword->id,
+                    ]);
+            }
         }
     }
 }

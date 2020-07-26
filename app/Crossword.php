@@ -11,4 +11,7 @@ class Crossword extends Model
     {
         return $this->belongsTo('App\Activity');
     }
+    public function questions(){
+        return $this->hasMany('App\Question');
+    }
 }
