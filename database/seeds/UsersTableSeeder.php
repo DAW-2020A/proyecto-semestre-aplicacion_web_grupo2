@@ -34,6 +34,7 @@ class UsersTableSeeder extends Seeder
                 'email' => $faker->email,
                 'password' => $password,
             ]);
+
             /*$user->courses()->saveMany(
                 $faker->randomElements(
                     array(
@@ -52,5 +53,6 @@ class UsersTableSeeder extends Seeder
         }
     }
 }
+
 
 

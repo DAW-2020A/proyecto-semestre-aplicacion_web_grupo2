@@ -23,7 +23,7 @@ class Activity extends Model
     {
         return $this->hasOne('App\Crossword');
     }
-    public function user (){
+    public function administrator (){
         return $this->belongsTo('App\User');
     }
     public static function boot(){

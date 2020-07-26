@@ -25,8 +25,8 @@ class CoursesTableSeeder extends Seeder
             JWTAuth::attempt(['email' => $user->email, 'password' => '123456']);
 
             // Por cada usuario creamos 1 curso
-            $num_articles = 1;
-            for ($j = 0; $j < $num_articles; $j++) {
+            $num_courses = 1;
+            for ($j = 0; $j < $num_courses; $j++) {
                 Course::create([
                     'name' => $faker->word,
                     //genera un numero unico entre un rango de valores.

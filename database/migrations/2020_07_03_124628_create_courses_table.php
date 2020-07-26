@@ -19,7 +19,7 @@ class CreateCoursesTable extends Migration
             $table->integer('code');
             $table->timestamps();
         });
-        Schema::create('course_user', function (Blueprint $table) {
+        Schema::create('course_student', function (Blueprint $table) {
             $table->unsignedBigInteger('course_id');
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('restrict');
             $table->unsignedBigInteger('user_id');
@@ -37,7 +37,7 @@ class CreateCoursesTable extends Migration
     {
         Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('courses');
-        Schema::dropIfExists('course_user');
+        Schema::dropIfExists('course_student');
         Schema::enableForeignKeyConstraints();
     }
 }
