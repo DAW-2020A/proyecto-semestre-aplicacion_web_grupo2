@@ -12,4 +12,8 @@ class WordSearch extends Model
     {
         return $this->hasMany('App\Word');
     }
+    public function activity()
+    {
+        return $this->belongsTo('App\Activity');
+    }
 }

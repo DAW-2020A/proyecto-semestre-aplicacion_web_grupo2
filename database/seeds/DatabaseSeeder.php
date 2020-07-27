@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(WordsTableSeeder::class);
         $this->call(MultipleChoicesTableSeeder::class);
         $this->call(TestsTableSeeder::class);
+        $this->call(ActivitiesTestsTableSeeder::class);
         Schema::enableForeignKeyConstraints();
     }
 }

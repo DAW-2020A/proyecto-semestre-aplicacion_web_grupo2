@@ -1,5 +1,6 @@
 <?php
 
+use App\ActivityTest;
 use App\Course;
 use App\User;
 use Illuminate\Database\Seeder;
@@ -49,6 +50,34 @@ class UsersTableSeeder extends Seeder
                         Course::find(9),
                         Course::find(10)
                     ),$faker->numberBetween(1, 10), false)
+            );*/
+
+            //Seed de activity_test_users
+            /*$user->activity_tests()->saveMany(
+                $faker->randomElements(
+                    array(
+                        ActivityTest::find(1),
+                        ActivityTest::find(2),
+                        ActivityTest::find(3),
+                        ActivityTest::find(4),
+                        ActivityTest::find(5),
+                        ActivityTest::find(6),
+                        ActivityTest::find(7),
+                        ActivityTest::find(8),
+                        ActivityTest::find(9),
+                        ActivityTest::find(10),
+                        ActivityTest::find(11),
+                        ActivityTest::find(12),
+                        ActivityTest::find(13),
+                        ActivityTest::find(14),
+                        ActivityTest::find(15),
+                        ActivityTest::find(16),
+                        ActivityTest::find(17),
+                        ActivityTest::find(18),
+                        ActivityTest::find(19),
+                        ActivityTest::find(20)
+                    ), $faker->numberBetween(1, 20), false
+                )
             );*/
         }
     }

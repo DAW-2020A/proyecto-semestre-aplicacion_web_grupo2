@@ -18,7 +18,10 @@ class Activity extends Model
     {
         return $this->hasOne('App\MultipleChoice');
     }
-
+    public function word_search()
+    {
+        return $this->hasOne('App\WordSearch');
+    }
     public function crossword()
     {
         return $this->hasOne('App\Crossword');
@@ -32,6 +35,10 @@ class Activity extends Model
         static::creating(function ($activity) {
             $activity->user_id = Auth::id();
         });
+    }
+    public function activity_test()
+    {
+        return $this->hasMany('App\ActivityTest');
     }
 }
 

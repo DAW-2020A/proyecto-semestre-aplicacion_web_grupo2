@@ -18,11 +18,15 @@ class WordSearchesTableSeeder extends Seeder
         WordSearch::truncate();
         $faker = \Faker\Factory::create();
 
-        // creamos 30 crosswords por cada 30 actividades
-        for ($j = 0; $j < 30; $j++) {
+        //obtenemos las actividades desde la 91 hasta la 120
+        $activities=App\Activity::skip(90)->take(30)->get();
+
+        // Crear datos ficticios en la tabla
+        foreach ($activities as $activity){
             WordSearch::create([
                 'clue'=>$faker->randomElement([true,false]),
                 'size'=>$faker->randomElement(['small','medium','big']),
+                'activity_id' => $activity->id,
             ]);
         }
 
