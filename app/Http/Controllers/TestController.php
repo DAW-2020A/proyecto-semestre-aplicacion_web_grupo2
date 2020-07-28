@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
+    private static $messages = [
+        'required' => 'El campo :attribute es obligatorio.'
+    ];
+
     public function index()
     {
         return new TestCollection(Test::all());
@@ -21,6 +25,12 @@ class TestController extends Controller
 
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'name' => 'string|max:100',
+            'description' => 'string|max:250',
+            'start_time' => 'required',
+            'end_time' => 'required'
+        ], self::$messages);
         $test = Test::create($request->all());
         return response()->json($test, 201);
     }

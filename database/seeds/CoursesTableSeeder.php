@@ -28,7 +28,7 @@ class CoursesTableSeeder extends Seeder
             $num_courses = 1;
             for ($j = 0; $j < $num_courses; $j++) {
                 Course::create([
-                    'name' => $faker->word,
+                    'name' => $faker->sentence,
                     //genera un numero unico entre un rango de valores.
                     'code' => $faker->unique()->numberBetween($min = 1000, $max = 9000),
                     ]);

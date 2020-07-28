@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Auth;
 
 class Course extends Model
 {
-    protected $fillable = ['name','code'];
+    protected $fillable = ['name'];
+
     public function teacher (){
         return $this->belongsTo('App\User');
     }
