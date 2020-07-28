@@ -26,7 +26,8 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|string|max:200'
+            'name' => 'required|string|max:200',
+            'code' => 'required|integer|between:1000,9000'
         ], self::$messages);
         $course = Course::create($validatedData);
         return response()->json(new CourseResource($course), 201);
