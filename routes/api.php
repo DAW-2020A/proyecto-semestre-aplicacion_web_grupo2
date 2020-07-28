@@ -27,6 +27,7 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     Route::get('courses', 'CourseController@index');
     Route::get('courses/{course}', 'CourseController@show');
     Route::put('courses/{course}', 'CourseController@update');
+    Route::post('courses', 'CourseController@store');
     Route::delete('courses/{course}', 'CourseController@delete');
 
     //Rutas question

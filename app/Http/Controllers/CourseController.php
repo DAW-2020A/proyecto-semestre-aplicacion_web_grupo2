@@ -9,6 +9,10 @@ use App\Http\Resources\Course as CourseResource;
 
 class CourseController extends Controller
 {
+    private static $messages = [
+        'required' => 'El campo :attribute es obligatorio.'
+    ];
+
     public function index()
     {
         return new CourseCollection(Course::all());
@@ -21,8 +25,12 @@ class CourseController extends Controller
 
     public function store(Request $request)
     {
-        $course = Course::create($request->all());
-        return response()->json($course, 201);
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:200',
+            'code' => 'required|integer|between:1000,9000'
+        ], self::$messages);
+        $course = Course::create($validatedData);
+        return response()->json(new CourseResource($course), 201);
     }
 
     public function update(Request $request, Course $course)
