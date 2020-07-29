@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 
 class MultipleChoiceController extends Controller
 {
+    private static $messages = [
+        'required' => 'El campo :attribute es obligatorio.'
+    ];
     public function index()
     {
         return new MultipleChoiceCollection(MultipleChoice::all());
@@ -21,12 +24,26 @@ class MultipleChoiceController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'correct_answer' => 'required|string|max:1000',
+            'option1' => 'string|max:1000|require',
+            'option2' => 'string|max:1000|require',
+            'option3' => 'string|max:1000',
+            'option4' => 'string|max:1000',
+        ], self::$messages);
         $multiple = MultipleChoice::create($request->all());
         return response()->json($multiple, 201);
     }
 
     public function update(Request $request, MultipleChoice $multiple)
     {
+        $request->validate([
+            'correct_answer' => 'required|string|max:1000',
+            'option1' => 'string|max:1000|require',
+            'option2' => 'string|max:1000|require',
+            'option3' => 'string|max:1000',
+            'option4' => 'string|max:1000',
+        ], self::$messages);
         $multiple->update($request->all());
         return response()->json($multiple, 200);
     }

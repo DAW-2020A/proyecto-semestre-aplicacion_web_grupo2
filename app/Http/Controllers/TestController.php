@@ -25,7 +25,7 @@ class TestController extends Controller
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $request->validate([
             'name' => 'string|max:100',
             'description' => 'string|max:250',
             'start_time' => 'required',
@@ -37,6 +37,12 @@ class TestController extends Controller
 
     public function update(Request $request, Test $test)
     {
+        $request->validate([
+            'name' => 'string|max:100',
+            'description' => 'string|max:250',
+            'start_time' => 'required',
+            'end_time' => 'required'
+        ], self::$messages);
         $test->update($request->all());
         return response()->json($test, 200);
     }

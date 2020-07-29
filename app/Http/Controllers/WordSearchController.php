@@ -9,6 +9,10 @@ use App\Http\Resources\WordSearch as WordSearchResource;
 
 class WordSearchController extends Controller
 {
+    private static $messages = [
+        'required' => 'El campo :attribute es obligatorio.'
+    ];
+
     public function index()
     {
         return new WordSearchCollection(WordSearch::all());
@@ -21,12 +25,20 @@ class WordSearchController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'clue' => 'required|boolean',
+            'size' => 'required|string|max:20'
+        ], self::$messages);
         $search = WordSearch::create($request->all());
         return response()->json($search, 201);
     }
 
     public function update(Request $request, WordSearch $search)
     {
+        $request->validate([
+            'clue' => 'required|boolean',
+            'size' => 'required|string|max:20'
+        ], self::$messages);
         $search->update($request->all());
         return response()->json($search, 200);
     }

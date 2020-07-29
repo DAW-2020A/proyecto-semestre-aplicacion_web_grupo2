@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class WordController extends Controller
 {
+    private static $messages = [
+        'required' => 'El campo :attribute es obligatorio.'
+    ];
+
     public function index()
     {
         return new WordCollection(Word::all());
@@ -21,12 +25,18 @@ class WordController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'word' => 'required|string|max:10',
+        ], self::$messages);
         $word = Word::create($request->all());
         return response()->json($word, 201);
     }
 
     public function update(Request $request, Word $word)
     {
+        $request->validate([
+            'word' => 'required|string|max:10',
+        ], self::$messages);
         $word->update($request->all());
         return response()->json($word, 200);
     }
