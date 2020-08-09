@@ -67,10 +67,10 @@ Route::group(['middleware' => ['jwt.verify']], function() {
 
     //Rutas Activity
     Route::get('activities', 'ActivityController@index');
-    Route::get('tests/{test}/activities/{activity}', 'ActivityController@show');
-    Route::post('tests/{test}/activities', 'ActivityController@store');
-    Route::put('tests/{test}/activities/{activity}', 'ActivityController@update');
-    Route::delete('tests/{test}/activities/{activity}', 'ActivityController@delete');
+    Route::get('activities/{activity}', 'ActivityController@show');
+    Route::post('activities', 'ActivityController@store');
+    Route::put('activities/{activity}', 'ActivityController@update');
+    Route::delete('activities/{activity}', 'ActivityController@delete');
 
     //Rutas Word
     Route::get('words', 'WordController@index');
