@@ -14,6 +14,7 @@ class StudentActivityTestSeeder extends Seeder
     {
         $userIds = App\User::all();
         $acttestIds = App\ActivityTest::all();
+        $activities = App\Activity::take(5)->get();
         // courses_user
         for ($i = 0; $i < 5; $i++) {
             for ($j = 0; $j < 5; $j++) {
@@ -21,7 +22,7 @@ class StudentActivityTestSeeder extends Seeder
                     [
                         'activity_test_id' => $acttestIds[$i]->id,
                         'student_id' => $userIds[$j]->id,
-                        'score' => 25,
+                        'grade' => $activities[$j]->score,
                         'created_at' => $acttestIds[$i]->created_at,
                         'updated_at' => $acttestIds[$i]->updated_at
                     ]

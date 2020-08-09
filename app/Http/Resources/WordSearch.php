@@ -18,8 +18,7 @@ class WordSearch extends JsonResource
             'id' => $this->id,
             'clue' => $this->clue,
             'size' => $this->size,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            'words' => $this->words,
         ];
     }
 }
