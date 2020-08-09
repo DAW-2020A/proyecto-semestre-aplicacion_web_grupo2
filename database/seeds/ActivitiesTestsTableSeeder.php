@@ -19,11 +19,20 @@ class ActivitiesTestsTableSeeder extends Seeder
 
         $tests=App\Test::all();
         $activities=App\Activity::all();
-        for($j=0;$j<20;$j++){
-            ActivityTest::create([
-                'test_id' => $tests[$j]->id,
-                'activity_id' => $activities[$j]->id,
-            ]);
+        $tests = App\Test::all();
+        foreach ($tests as $test) {
+            foreach($activities as $activity) {
+                ActivityTest::create([
+                    'test_id' => $test->id,
+                    'activity_id' => $activity->id
+                ]);
+            }
+            /*for ($j = 0; $j < 20; $j++) {
+                ActivityTest::create([
+                    'test_id' => $tests[$j]->id,
+                    'activity_id' => $activities[$j]->id,
+                ]);
+            }*/
         }
 
     }

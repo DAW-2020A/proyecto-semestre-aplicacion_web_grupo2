@@ -21,6 +21,7 @@ class StudentActivityTestSeeder extends Seeder
                     [
                         'activity_test_id' => $acttestIds[$i]->id,
                         'student_id' => $userIds[$j]->id,
+                        'score' => 25,
                         'created_at' => $acttestIds[$i]->created_at,
                         'updated_at' => $acttestIds[$i]->updated_at
                     ]

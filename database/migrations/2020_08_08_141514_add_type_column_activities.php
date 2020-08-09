@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUserIdColumnActivity extends Migration
+class AddTypeColumnActivities extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,8 @@ class AddUserIdColumnActivity extends Migration
     public function up()
     {
         Schema::table('activities', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
+            $table->Integer('type_id');
+            $table->String('type_type');
         });
     }
 
@@ -27,7 +27,8 @@ class AddUserIdColumnActivity extends Migration
     public function down()
     {
         Schema::table('activities', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
+            $table->dropColumn('type_id');
+            $table->dropColumn('type_type');
         });
     }
 }

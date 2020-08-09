@@ -17,12 +17,12 @@ class DatabaseSeeder extends Seeder
         $this->call(CoursesTableSeeder::class);
         $this->call(CourseStudentSeeder::class);
         $this->call(ActivitiesTableSeeder::class);
-        $this->call(CompletesTableSeeder::class);
-        $this->call(CrosswordsTableSeeder::class);
-        $this->call(QuestionsTableSeeder::class);
-        $this->call(WordSearchesTableSeeder::class);
-        $this->call(WordsTableSeeder::class);
-        $this->call(MultipleChoicesTableSeeder::class);
+        //$this->call(CompletesTableSeeder::class);
+        //$this->call(CrosswordsTableSeeder::class);
+        //$this->call(QuestionsTableSeeder::class);
+        //$this->call(WordSearchesTableSeeder::class);
+        //$this->call(WordsTableSeeder::class);
+        //$this->call(MultipleChoicesTableSeeder::class);
         $this->call(TestsTableSeeder::class);
         $this->call(ActivitiesTestsTableSeeder::class);
         $this->call(StudentActivityTestSeeder::class);

@@ -8,8 +8,10 @@ class Complete extends Model
 {
     protected $fillable = ['complete_text','hidden_text'];
 
+    public $timestamps=false;
+
     public function activity()
     {
-        return $this->belongsTo('App\Activity');
+        return $this->morphOne('App\Activity', 'type');
     }
 }

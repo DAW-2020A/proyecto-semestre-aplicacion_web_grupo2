@@ -20,7 +20,6 @@ class CreateMultipleChoicesTable extends Migration
             $table->string('option2');
             $table->string('option3');
             $table->string('option4');
-            $table->timestamps();
         });
     }
 

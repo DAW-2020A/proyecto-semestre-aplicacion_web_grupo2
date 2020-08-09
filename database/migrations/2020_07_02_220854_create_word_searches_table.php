@@ -17,7 +17,6 @@ class CreateWordSearchesTable extends Migration
             $table->bigIncrements('id');
             $table->boolean('clue');
             $table->enum('size',['small','medium','big']);
-            $table->timestamps();
         });
     }
 

@@ -15,7 +15,6 @@ class CreateCrosswordsTable extends Migration
     {
         Schema::create('crosswords', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
         });
     }
 
