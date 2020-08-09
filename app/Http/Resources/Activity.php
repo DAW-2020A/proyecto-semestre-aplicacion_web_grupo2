@@ -2,7 +2,9 @@
 
 namespace App\Http\Resources;
 
+use App\Crossword;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Resources\Json\Resource;
 
 class Activity extends JsonResource
 {
@@ -19,6 +21,7 @@ class Activity extends JsonResource
             'title' => $this->title,
             'description' => $this->description,
             'score' => $this->score,
+            $this->merge($this->type),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

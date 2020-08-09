@@ -31,7 +31,7 @@ class CoursesTableSeeder extends Seeder
                     'name' => $faker->sentence,
                     //genera un numero unico entre un rango de valores.
                     'code' => $faker->unique()->numberBetween($min = 1000, $max = 9000),
-                    ]);
+                ]);
             }
         }
     }

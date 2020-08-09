@@ -17,7 +17,6 @@ class CreateCompletesTable extends Migration
             $table->bigIncrements('id');
             $table->text('complete_text');
             $table->text('hidden_text');
-            $table->timestamps();
         });
     }
 

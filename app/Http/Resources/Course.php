@@ -18,6 +18,8 @@ class Course extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'code' => $this->code,
+            'students' => new UserCollection($this->students),
+            'tests' => new TestCollection($this->tests),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

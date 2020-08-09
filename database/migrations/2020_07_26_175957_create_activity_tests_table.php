@@ -24,6 +24,7 @@ class CreateActivityTestsTable extends Migration
             $table->foreign('activity_test_id')->references('id')->on('activity_tests')->onDelete('restrict');
             $table->unsignedBigInteger('student_id');
             $table->foreign('student_id')->references('id')->on('users')->onDelete('restrict');
+            $table->float('grade');
             $table->timestamps();
         });
     }

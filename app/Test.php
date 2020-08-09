@@ -13,6 +13,10 @@ class Test extends Model
     {
         return $this->hasMany('App\ActivityTest');
     }
+
+    public function course(){
+        return $this->belongsTo('App\Course');
+    }
     /*public static function boot(){
         parent::boot();
 

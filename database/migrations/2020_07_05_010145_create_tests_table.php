@@ -19,6 +19,8 @@ class CreateTestsTable extends Migration
             $table->text('description');
             $table->dateTime('start_time');
             $table->dateTime('end_time');
+            $table->unsignedBigInteger('course_id');
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('restrict');
             $table->timestamps();
         });
     }
