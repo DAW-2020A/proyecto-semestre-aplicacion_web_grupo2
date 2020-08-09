@@ -52,11 +52,11 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     Route::delete('multiple_choices/{multiple}', 'MultipleChoiceController@delete');
 
     //Rutas Test
-    Route::get('tests', 'TestController@index');
-    Route::get('tests/{test}', 'TestController@show');
-    Route::post('tests', 'TestController@store');
-    Route::put('tests/{test}', 'TestController@update');
-    Route::delete('tests/{test}', 'TestController@delete');
+    Route::get('courses/{course}/tests', 'TestController@index');
+    Route::get('courses/{course}/tests/{test}', 'TestController@show');
+    Route::post('courses/{course}/tests', 'TestController@store');
+    Route::put('courses/{course}/tests/{test}', 'TestController@update');
+    Route::delete('courses/{course}/tests/{test}', 'TestController@delete');
 
     //Rutas WordSearch
     Route::get('searches', 'WordSearchController@index');
@@ -67,10 +67,10 @@ Route::group(['middleware' => ['jwt.verify']], function() {
 
     //Rutas Activity
     Route::get('activities', 'ActivityController@index');
-    Route::get('activities/{activity}', 'ActivityController@show');
-    Route::post('activities', 'ActivityController@store');
-    Route::put('activities/{activity}', 'ActivityController@update');
-    Route::delete('activities/{activity}', 'ActivityController@delete');
+    Route::get('tests/{test}/activities/{activity}', 'ActivityController@show');
+    Route::post('tests/{test}/activities', 'ActivityController@store');
+    Route::put('tests/{test}/activities/{activity}', 'ActivityController@update');
+    Route::delete('tests/{test}/activities/{activity}', 'ActivityController@delete');
 
     //Rutas Word
     Route::get('words', 'WordController@index');
