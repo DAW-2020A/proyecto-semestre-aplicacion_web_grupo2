@@ -52,11 +52,11 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     Route::delete('multiple_choices/{multiple}', 'MultipleChoiceController@delete');
 
     //Rutas Test
-    Route::get('tests', 'TestController@index');
-    Route::get('tests/{test}', 'TestController@show');
-    Route::post('tests', 'TestController@store');
-    Route::put('tests/{test}', 'TestController@update');
-    Route::delete('tests/{test}', 'TestController@delete');
+    Route::get('courses/{course}/tests', 'TestController@index');
+    Route::get('courses/{course}/tests/{test}', 'TestController@show');
+    Route::post('courses/{course}/tests', 'TestController@store');
+    Route::put('courses/{course}/tests/{test}', 'TestController@update');
+    Route::delete('courses/{course}/tests/{test}', 'TestController@delete');
 
     //Rutas WordSearch
     Route::get('searches', 'WordSearchController@index');

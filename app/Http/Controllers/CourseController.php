@@ -20,11 +20,13 @@ class CourseController extends Controller
 
     public function show(Course $course)
     {
+        $this->authorize('view', $course);
         return response()->json(new CourseResource($course), 200);
     }
 
     public function store(Request $request)
     {
+        $this->authorize('create', Course::class);
         $validatedData = $request->validate([
             'name' => 'required|string|max:200',
             'code' => 'required|integer|between:1000,9000'
@@ -35,12 +37,14 @@ class CourseController extends Controller
 
     public function update(Request $request, Course $course)
     {
+        $this->authorize('update', $course);
         $course->update($request->all());
         return response()->json($course, 200);
     }
 
     public function delete(Course $course)
     {
+        $this->authorize('delete', $course);
         $course->delete();
         return response()->json(null, 204);
     }
