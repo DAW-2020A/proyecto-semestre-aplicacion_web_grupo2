@@ -18,8 +18,6 @@ class Question extends JsonResource
             'id' => $this->id,
             'word' => $this->word,
             'definition'=>$this->definition,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
         ];
     }
 }

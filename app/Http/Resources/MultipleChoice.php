@@ -21,8 +21,6 @@ class MultipleChoice extends JsonResource
             'option2' => $this->option2,
             'option3' => $this->option3,
             'option4' => $this->option4,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
         ];
     }
 }

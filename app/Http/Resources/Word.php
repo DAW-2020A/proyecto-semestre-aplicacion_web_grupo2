@@ -17,8 +17,6 @@ class Word extends JsonResource
         return [
             'id' => $this->id,
             'word' => $this->word,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
         ];
     }
 }

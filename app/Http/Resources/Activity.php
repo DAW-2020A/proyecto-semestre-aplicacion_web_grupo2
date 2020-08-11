@@ -22,8 +22,6 @@ class Activity extends JsonResource
             'description' => $this->description,
             'score' => $this->score,
             $this->merge($this->type),
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
         ];
     }
 }
