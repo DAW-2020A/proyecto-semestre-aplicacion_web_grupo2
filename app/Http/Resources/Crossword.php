@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Question extends JsonResource
+class Crossword extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,8 +15,8 @@ class Question extends JsonResource
     public function toArray($request)
     {
         return [
-            'word' => $this->word,
-            'definition'=>$this->definition,
+            'id' => $this->id,
+            $this-> merge(new QuestionCollection($this->questions)),
         ];
     }
 }

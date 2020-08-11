@@ -6,6 +6,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class Test extends JsonResource
 {
+
     /**
      * Transform the resource into an array.
      *
@@ -20,6 +21,7 @@ class Test extends JsonResource
             'description' => $this->description,
             'start_time' => $this->start_time,
             'end_time' => $this->end_time,
+            //$this->merge(new ActivityCollection($this->activitys)),
         ];
     }
 }

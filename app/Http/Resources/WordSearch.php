@@ -18,7 +18,7 @@ class WordSearch extends JsonResource
             'id' => $this->id,
             'clue' => $this->clue,
             'size' => $this->size,
-            'words' => $this->words,
+            $this-> merge(new WordCollection($this->words)),
         ];
     }
 }

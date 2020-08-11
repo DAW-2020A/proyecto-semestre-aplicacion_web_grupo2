@@ -11,7 +11,8 @@ class Activity extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     * @param $type
      * @return array
      */
     public function toArray($request)
