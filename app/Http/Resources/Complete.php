@@ -18,8 +18,6 @@ class Complete extends JsonResource
             'id' => $this->id,
             'complete_text' => $this->complete_text,
             'hidden_text' => $this->hidden_text,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
         ];
     }
 }
