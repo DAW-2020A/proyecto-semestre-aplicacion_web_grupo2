@@ -16,7 +16,7 @@ class Crossword extends JsonResource
     {
         return [
             'id' => $this->id,
-            $this-> merge(new QuestionCollection($this->questions)),
+            'questions'=> new QuestionCollection($this->questions),
         ];
     }
 }
