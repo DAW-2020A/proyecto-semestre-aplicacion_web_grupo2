@@ -15,7 +15,6 @@ class Word extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
             'word' => $this->word,
         ];
     }

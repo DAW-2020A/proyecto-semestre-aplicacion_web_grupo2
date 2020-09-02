@@ -26,6 +26,7 @@ class UsersTableSeeder extends Seeder
             'lastname' => 'Prueba',
             'email' => 'admin@prueba.com',
             'password' => $password,
+            'role' => 'ROLE_ADMIN',
         ]);
         // Generar algunos usuarios para nuestra aplicacion
         for ($i = 0; $i < 9; $i++) {
@@ -34,6 +35,7 @@ class UsersTableSeeder extends Seeder
                 'lastname' => $faker->lastName,
                 'email' => $faker->email,
                 'password' => $password,
+                'role'=> $faker->randomElement(['ROLE_TEACHER','ROLE_STUDENT']),
             ]);
 
             /*$user->courses()->saveMany(

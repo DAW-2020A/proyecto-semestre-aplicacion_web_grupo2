@@ -21,6 +21,9 @@ class Course extends JsonResource
             'code' => $this->code,
             'students' =>$this->when(Auth::user()->role=='ROLE_TEACHER',new UserCollection($this->students)),
             'tests' => $this->when(Auth::user()->role=='ROLE_TEACHER',new TestCollection($this->tests)),
+            'tests_students' => $this->when(Auth::user()->role=='ROLE_STUDENT',new TestCollection($this->tests)),
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ];
     }
 }
