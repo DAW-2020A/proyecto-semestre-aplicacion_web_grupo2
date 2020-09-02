@@ -80,5 +80,8 @@ Route::group(['middleware' => ['cors']], function () {
         Route::post('words', 'WordController@store');
         Route::put('words/{word}', 'WordController@update');
         Route::delete('words/{word}', 'WordController@delete');
-    });
+    
+        //Crosswords
+        Route::get('crosswords', 'CrosswordController@index');
+        Route::get('crosswords/{crossword}', 'CrosswordController@index');
 });
