@@ -24,8 +24,10 @@ Route::group(['middleware' => ['cors']], function () {
     Route::post('login', 'UserController@authenticate');
 
     Route::group(['middleware' => ['jwt.verify']], function() {
-        //Rutas courses
+
+        Route::post('user', 'UserController@getAuthenticteUser');
         Route::post('logout', 'UserController@logout');
+        //Rutas courses
         Route::get('courses', 'CourseController@index');
         Route::get('courses/{course}', 'CourseController@show');
         Route::put('courses/{course}', 'CourseController@update');
@@ -80,8 +82,9 @@ Route::group(['middleware' => ['cors']], function () {
         Route::post('words', 'WordController@store');
         Route::put('words/{word}', 'WordController@update');
         Route::delete('words/{word}', 'WordController@delete');
-    
+
         //Crosswords
         Route::get('crosswords', 'CrosswordController@index');
         Route::get('crosswords/{crossword}', 'CrosswordController@index');
+    });
 });
