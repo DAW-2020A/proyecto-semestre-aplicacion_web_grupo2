@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Course;
 use App\Http\Resources\CourseCollection;
 use App\Http\Resources\Course as CourseResource;
+use Illuminate\Support\Facades\Auth;
+use JWTAuth;
 
 class CourseController extends Controller
 {
@@ -17,7 +19,6 @@ class CourseController extends Controller
     {
         return new CourseCollection(Course::all());
     }
-
     public function show(Course $course)
     {
         $this->authorize('view', $course);
@@ -47,5 +48,11 @@ class CourseController extends Controller
         $this->authorize('delete', $course);
         $course->delete();
         return response()->json(null, 204);
+    }
+    public function coursesByUser(){
+        $user=Auth::user();
+        $courses=$user->courses;
+
+        return response()->json(new CourseCollection($courses),200);
     }
 }
