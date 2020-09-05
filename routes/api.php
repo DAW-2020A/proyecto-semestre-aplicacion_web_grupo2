@@ -34,6 +34,9 @@ Route::group(['middleware' => ['cors']], function () {
         Route::post('courses', 'CourseController@store');
         Route::delete('courses/{course}', 'CourseController@delete');
 
+        //Rutas de cursos para los usuarios
+        Route::get('user/courses', 'CourseController@coursesByUser');
+
         //Rutas question
         Route::get('questions', 'QuestionController@index');
         Route::get('questions/{question}', 'QuestionController@show');
