@@ -23,9 +23,9 @@ Route::group(['middleware' => ['cors']], function () {
     Route::post('register', 'UserController@register');
     Route::post('login', 'UserController@authenticate');
 
-    Route::group(['middleware' => ['jwt.verify']], function() {
+    Route::group(['middleware' => ['jwt.verify']], function () {
 
-        Route::post('user', 'UserController@getAuthenticteUser');
+        Route::post('user', 'UserController@getAuthenticatedUser');
         Route::post('logout', 'UserController@logout');
         //Rutas courses
         Route::get('courses', 'CourseController@index');

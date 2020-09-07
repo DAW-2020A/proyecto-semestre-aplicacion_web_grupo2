@@ -20,6 +20,7 @@ class User extends JsonResource
             'lastname'=>$this->lastname,
             'email' => $this->email,
             'role' => $this->role,
+           // 'courses' =>'/api/users/' . $this->id . '/courses'
         ];
     }
 }
