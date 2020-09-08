@@ -21,9 +21,10 @@ class CoursePolicy
      * Determine whether the user can view any courses.
      *
      * @param  \App\User  $user
+     * * @param  \App\Course  $course
      * @return mixed
      */
-    public function viewAny(User $user)
+    public function viewAny(User $user,  Course $course)
     {
         return true;
     }
