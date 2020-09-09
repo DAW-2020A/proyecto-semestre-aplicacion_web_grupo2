@@ -25,6 +25,7 @@ class CoursesTableSeeder extends Seeder
             JWTAuth::attempt(['email' => $user->email, 'password' => '123456']);
 
             // Por cada usuario creamos 1 curso
+            if ($user->role == "ROLE_TEACHER"){
             $num_courses = 2;
             for ($j = 0; $j < $num_courses; $j++) {
                 Course::create([
@@ -33,6 +34,6 @@ class CoursesTableSeeder extends Seeder
                     'code' => $faker->unique()->numberBetween($min = 1000, $max = 9000),
                 ]);
             }
-        }
+        }}
     }
 }
