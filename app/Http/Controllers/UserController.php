@@ -34,6 +34,7 @@ class UserController extends Controller
             'lastname' => 'required|string|max:80',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'role' => 'required',
         ]);
 
         $user = User::create([
@@ -41,6 +42,7 @@ class UserController extends Controller
             'lastname' => $request->get('lastname'),
             'email' => $request->get('email'),
             'password' => Hash::make($request->get('password')),
+            'role' => $request->get('role'),
         ]);
 
         $token = JWTAuth::fromUser($user);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Course;
 use App\Http\Resources\CourseCollection;
@@ -17,6 +18,8 @@ class CourseController extends Controller
 
     public function index()
     {
+
+        //$this->authorize('viewAny');
         return new CourseCollection(Course::all());
     }
     public function show(Course $course)
@@ -57,10 +60,18 @@ class CourseController extends Controller
         $course->delete();
         return response()->json(null, 204);
     }
-    public function coursesByUser(){
+    public function coursesByTeacher(){
         $user=Auth::user();
-        $courses=$user->courses;
-
-        return response()->json(new CourseCollection($courses),200);
+        $courses=$user->coursesT;
+        return response()->json(CourseResource::collection($courses),200);
+    }
+    public function coursesByStudent(){
+        $user=Auth::user();
+        $courses=$user->coursesS;
+        return response()->json(CourseResource::collection($courses),200);
+    }
+    public function joinCourse($code) {
+        $course=Course::where("code",$code)->first();
+        Auth::user()->coursesS()->save($course);
     }
 }
