@@ -71,7 +71,18 @@ class CourseController extends Controller
         return response()->json(CourseResource::collection($courses),200);
     }
     public function joinCourse($code) {
-        $course=Course::where("code",$code)->first();
-        Auth::user()->coursesS()->save($course);
+        $course=Course::where("code",$code)->firstOrFail();
+        if ($course){
+         $findCourse=Auth::user()->coursesS()->find($course);
+         if($findCourse){
+             return response()->json(["message"=>"Ya esta registrado en este curso"],400);
+         }
+         else{
+             Auth::user()->coursesS()->save($course);
+         }
+        }
+        else{
+            return response()->json(null,204);
+        }
     }
 }

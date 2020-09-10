@@ -16,7 +16,7 @@ class CreateCoursesTable extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->integer('code');
+            $table->integer('code')->unique();
             $table->timestamps();
         });
         Schema::create('course_student', function (Blueprint $table) {
@@ -25,6 +25,7 @@ class CreateCoursesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
             $table->timestamps();
+            $table->primary(["course_id","user_id"]);
         });
     }
 
