@@ -34,14 +34,14 @@ class CourseController extends Controller
 
         $request->validate([
             'name' => 'required|string|max:200',
-            'code' => 'required|integer|between:1000,9000'
-
         ]);
+
+        $code=uniqid();
+        $code=substr($code,7,6);
 
         $course = Course::create([
             'name' => $request->get('name'),
-            'code' => $request->get('code'),
-
+            'code' => $code,
         ]);
 
         return response()->json(new CourseResource($course), 201);
