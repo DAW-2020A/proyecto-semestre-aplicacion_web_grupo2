@@ -29,6 +29,7 @@ Route::group(['middleware' => ['cors']], function () {
         Route::post('logout', 'UserController@logout');
         //Rutas courses
         Route::get('courses', 'CourseController@index');
+        Route::get('infocourses/{course}', 'CourseController@courseStudent');
         Route::get('courses/{course}', 'CourseController@show');
         Route::put('courses/{course}', 'CourseController@update');
         Route::post('courses', 'CourseController@store');

@@ -28,6 +28,11 @@ class CourseController extends Controller
         return response()->json(new CourseResource($course), 200);
     }
 
+    public function courseStudent(Course $course)
+    {
+        return response()->json(new CourseResource($course), 200);
+    }
+
     public function store(Request $request)
     {
         $this->authorize('create', Course::class);
