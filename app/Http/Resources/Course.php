@@ -19,7 +19,7 @@ class Course extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'code' => $this->code,
-            'user_id'=>new UserCollection($this->user_id),
+            'user_id'=>$this->user_id,
             'students' =>$this->when(Auth::user()->role=='ROLE_TEACHER',new UserCollection($this->students)),
             'tests' => $this->when(Auth::user()->role=='ROLE_TEACHER',new TestCollection($this->tests)),
             'tests_students' => $this->when(Auth::user()->role=='ROLE_STUDENT',new TestCollection($this->tests)),
