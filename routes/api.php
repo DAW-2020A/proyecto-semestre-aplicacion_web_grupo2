@@ -25,10 +25,11 @@ Route::group(['middleware' => ['cors']], function () {
 
     Route::group(['middleware' => ['jwt.verify']], function () {
 
-        Route::post('user', 'UserController@getAuthenticatedUser');
+        Route::get('user', 'UserController@getAuthenticatedUser');
         Route::post('logout', 'UserController@logout');
         //Rutas courses
         Route::get('courses', 'CourseController@index');
+        Route::get('infocourses/{course}', 'CourseController@courseStudent');
         Route::get('courses/{course}', 'CourseController@show');
         Route::put('courses/{course}', 'CourseController@update');
         Route::post('courses', 'CourseController@store');
