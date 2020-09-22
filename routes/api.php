@@ -78,7 +78,7 @@ Route::group(['middleware' => ['cors']], function () {
         //Rutas Activity
         Route::get('activities', 'ActivityController@index');
         Route::get('activities/{activity}', 'ActivityController@show');
-        Route::post('activities', 'ActivityController@store');
+        Route::post('activities/complete', 'ActivityController@complete');
         Route::put('activities/{activity}', 'ActivityController@update');
         Route::delete('activities/{activity}', 'ActivityController@delete');
 

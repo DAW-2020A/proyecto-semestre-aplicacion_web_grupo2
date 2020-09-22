@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Complete;
 use App\Test;
 use Illuminate\Http\Request;
 use App\Activity;
@@ -24,14 +25,26 @@ class ActivityController extends Controller
         return response()->json(new ActivityResource($activity), 200);
     }
 
-    public function store(Request $request)
+    public function complete(Request $request)
     {
         $request->validate([
             'title' => 'required|string|max:100',
+            'complete_text' => 'string|max:1000',
+            'hidden_text' => 'string|max:1000',
             'description' => 'string|max:250',
             'score' => 'required'
         ], self::$messages);
-        $activity = Activity::create($request->all());
+        $complete = Complete::create([
+            'complete_text'=> $request->get('complete_text'),
+            'hidden_text'=> $request->get('hidden_text'),
+        ]);
+        $complete->activity()->create([
+            'title'=> $request->get('title'),
+            'description'=>$request->get('description'),
+            'score'=> $request->get('score'),
+        ]);
+
+        $activity = $complete->activity;
         return response()->json($activity, 201);
     }
 
@@ -43,6 +56,7 @@ class ActivityController extends Controller
             'score' => 'required'
         ], self::$messages);
         //$activity=$test->activity_test()->update($request->all());
+
         $activity->update($request->all());
         return response()->json($activity, 200);
     }

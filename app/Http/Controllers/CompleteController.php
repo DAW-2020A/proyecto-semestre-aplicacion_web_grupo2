@@ -26,7 +26,7 @@ class CompleteController extends Controller
     {
         $request->validate([
             'complete_text' => 'required|string|max:1000',
-            'hidden_text' => 'string|max:1000|require',
+            'hidden_text' => 'string|max:1000|required',
         ], self::$messages);
         $complete = Complete::create($request->all());
         return response()->json($complete, 201);
