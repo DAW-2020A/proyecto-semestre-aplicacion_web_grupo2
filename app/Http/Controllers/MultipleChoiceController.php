@@ -26,8 +26,8 @@ class MultipleChoiceController extends Controller
     {
         $request->validate([
             'correct_answer' => 'required|string|max:1000',
-            'option1' => 'string|max:1000|require',
-            'option2' => 'string|max:1000|require',
+            'option1' => 'string|max:1000|required',
+            'option2' => 'string|max:1000|required',
             'option3' => 'string|max:1000',
             'option4' => 'string|max:1000',
         ], self::$messages);
@@ -39,8 +39,8 @@ class MultipleChoiceController extends Controller
     {
         $request->validate([
             'correct_answer' => 'required|string|max:1000',
-            'option1' => 'string|max:1000|require',
-            'option2' => 'string|max:1000|require',
+            'option1' => 'string|max:1000|required',
+            'option2' => 'string|max:1000|required',
             'option3' => 'string|max:1000',
             'option4' => 'string|max:1000',
         ], self::$messages);
