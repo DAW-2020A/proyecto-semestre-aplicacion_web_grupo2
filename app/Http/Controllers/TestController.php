@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\Http\Resources\Course as CourseResource;
 use App\Test;
 use App\Http\Resources\TestCollection;
 use App\Http\Resources\Test as TestResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TestController extends Controller
 {
